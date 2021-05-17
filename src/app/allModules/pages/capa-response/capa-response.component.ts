@@ -157,7 +157,9 @@ export class CapaResponseComponent implements OnInit {
               }
             });
             if (this.Type == "Respond") {
-              if (Resitem.Status == "Resolved" || Resitem.Status == "Differed" || Resitem.Status == "Reject") {
+              console.log('Respond');
+              if (Resitem.Status == "Resolved" || Resitem.Status == "Differed" || Resitem.Status == "Reject" || Resitem.Status == "Accept") {
+                console.log("Resitem.Status",Resitem.Status);
                 this.ItemList.splice(index, 1);
                 this.CheckListDataSource = new MatTableDataSource<CAPAReqItem>(this.ItemList);
                 this.CheckListDataSource.sort = this.CheckListSort;
@@ -183,7 +185,6 @@ export class CapaResponseComponent implements OnInit {
     //     }
     //   });
     // }
-    console.log("ResponseDetails", this.ResponseDetails);
     this.isProgressBarVisibile = false;
   }
   GetCAPABuyerResponseItem() {
